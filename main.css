@@ -1,0 +1,40 @@
+/* ==UserStyle==
+@name           Vorapis V3 Hide shorts and ads
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Hide shorts and ads for Vorapis V3
+@author         KevFR
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    ytd-thumbnail-overlay-time-status-renderer[aria-label^="0:"] {
+        display: none !important;
+    }
+
+    /* Hide search result from shorts */
+    ytd-video-renderer ytd-thumbnail-overlay-time-status-renderer[aria-label^="0:"] {
+        display: none !important;
+    }
+
+    /* Hide containers */
+    ytd-reel-shelf-renderer,
+    ytd-reel-video-renderer,
+    ytd-video-renderer:has(a[href*="/shorts/"]) h3,
+    ytd-video-renderer:has(a[href*="/shorts/"]) .ytd-video-meta-block,
+    ytd-video-renderer:has(a[href*="/shorts/"]) .metadata-snippet-container,
+    div.yt-lockup-content:has(a[href^="/shorts/"]),
+    ytd-video-renderer:has(a[href*="/shorts/"]),
+    .yt-lockup-video a[href^="/shorts/"] {
+        display: none !important;
+    }
+
+    /* Hide ads */
+    ytd-promoted-video-renderer,
+    ytd-display-ad-renderer,
+    .ytd-search-pyv-renderer,
+    .pyv-promoted-videos,
+    .ad-renderer,
+    .banner-promo-renderer,
+    .yt-badge {
+        display: none !important;
+    }
+}
